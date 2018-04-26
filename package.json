@@ -1,7 +1,8 @@
 {
   "name": "hyper-switch-shell",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Allows hyper users to define alternate shell configurations and switch based on key mappings",
+  "repository": "https://github.com/andycarrell/hyper-switch-shell",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
