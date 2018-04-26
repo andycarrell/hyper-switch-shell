@@ -1,6 +1,6 @@
 {
   "name": "hyper-switch-shell",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Allows hyper users to define alternate shell configurations and switch based on key mappings",
   "main": "index.js",
   "scripts": {
