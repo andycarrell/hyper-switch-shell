@@ -13,8 +13,8 @@ Allows hyper users to define alternate shell configurations and switch based on 
 ```
 
 ## Usage
-1. Open `.hyper.js`
-2. Add a `shells` key, with value an object of shell configurations
+* Open `.hyper.js`
+* Add a `shells` key, with value an object of shell configurations
     * Each shell must have `shell`, and `shellArgs` key values.
 ```js
 {
@@ -34,7 +34,7 @@ Allows hyper users to define alternate shell configurations and switch based on 
   ...
 }
 ```
-3. Add key mappings
+* Add key mappings - these mappings will update the config
     * Currently only powershell & a generic default are supported.
 ```js
 {
@@ -44,3 +44,4 @@ Allows hyper users to define alternate shell configurations and switch based on 
   }
 }
 ```
+* Each command simply reloads the config - open a new tab, or reload `hyper` to use the new shell.
