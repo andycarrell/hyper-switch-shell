@@ -1,0 +1,15 @@
+{
+  "name": "hyper-switch-shell",
+  "version": "0.0.1",
+  "description": "Allows hyper users to define alternate shell configurations and switch based on key mappings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hyper",
+    "shell"
+  ],
+  "author": "Andy Carrell",
+  "license": "MIT"
+}
