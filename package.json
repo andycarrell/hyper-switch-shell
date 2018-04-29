@@ -5,12 +5,15 @@
   "repository": "https://github.com/andycarrell/hyper-switch-shell",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "hyper",
     "shell"
   ],
   "author": "Andy Carrell",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
 }
