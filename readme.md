@@ -45,3 +45,6 @@ Allows hyper users to define alternate shell configurations and switch based on 
 }
 ```
 * Each command simply reloads the config - open a new tab, or reload `hyper` to use the new shell.
+
+## Tests
+`npm test` - runs a limited number of tests found in `test/`.
