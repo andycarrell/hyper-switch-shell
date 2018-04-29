@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`action type UI_COMMAND_EXEC should call dispatch, when command matches 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "config": Object {
+          "shell": "bash",
+          "shellArgs": Array [
+            "shell arg",
+          ],
+          "shells": Object {
+            "default": Object {
+              "shell": "bash",
+              "shellArgs": Array [
+                "shell arg",
+              ],
+            },
+          },
+        },
+        "now": 1524965450320,
+        "pluginName": "hyper-switch-shell",
+        "type": "CONFIG_RELOAD",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`any given action, should be passed on with next 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "type": "TESTING_PASS_THROUGH",
+      },
+    ],
+  ],
+}
+`;
