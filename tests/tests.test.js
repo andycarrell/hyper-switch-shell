@@ -49,12 +49,14 @@ test("action type UI_COMMAND_EXEC should call dispatch, when command matches", (
   const mockDispatch = jest.fn();
   const testFn = middleware({ dispatch: mockDispatch })(() => {});
 
+  const testKey = "default";
+
   // setup config
   const mockConfigAction = {
     type: "CONFIG_LOAD",
     config: {
       shells: {
-        default: {
+        [testKey]: {
           shell: "bash",
           shellArgs: ["shell arg"]
         }
@@ -64,7 +66,10 @@ test("action type UI_COMMAND_EXEC should call dispatch, when command matches", (
 
   testFn(mockConfigAction);
 
-  const mockAction = { type: "UI_COMMAND_EXEC", command: "shell:load:default" };
+  const mockAction = {
+    type: "UI_COMMAND_EXEC",
+    command: `shell:load:${testKey}`
+  };
 
   testFn(mockAction);
 

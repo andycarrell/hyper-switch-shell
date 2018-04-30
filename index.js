@@ -2,6 +2,11 @@ const pluginName = "hyper-switch-shell";
 
 let config = {};
 
+// regular expressions
+const reg = "shell:load:";
+const matches = str => new RegExp(`^${reg}\\w+$`).test(str);
+const getKey = str => str.split(new RegExp(`^${reg}`)).pop();
+
 exports.middleware = ({ dispatch }) => {
   const configReload = shellConfig => {
     const { shell, shellArgs } = shellConfig;
@@ -20,20 +25,13 @@ exports.middleware = ({ dispatch }) => {
     if (action.type === "CONFIG_LOAD" || action.type === "CONFIG_RELOAD") {
       config = action.config;
     }
-    if (
-      action.type === "UI_COMMAND_EXEC" &&
-      action.command &&
-      action.command === "shell:load:default"
-    ) {
-      configReload(config.shells.default);
-    }
 
-    if (
-      action.type === "UI_COMMAND_EXEC" &&
-      action.command &&
-      action.command === "shell:load:powershell"
-    ) {
-      configReload(config.shells.powershell);
+    if (action.type === "UI_COMMAND_EXEC" && matches(action.command)) {
+      const key = getKey(action.command);
+
+      if (config.shells[key]) {
+        configReload(config.shells[key]);
+      }
     }
 
     next(action);
