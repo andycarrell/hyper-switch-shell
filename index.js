@@ -1,11 +1,8 @@
+const { isValid, getKey } = require("./util");
+
 const pluginName = "hyper-switch-shell";
 
 let config = {};
-
-// regular expressions
-const reg = "shell:load:";
-const matches = str => new RegExp(`^${reg}\\w+$`).test(str);
-const getKey = str => str.split(new RegExp(`^${reg}`)).pop();
 
 exports.middleware = ({ dispatch }) => {
   const configReload = shellConfig => {
@@ -26,7 +23,7 @@ exports.middleware = ({ dispatch }) => {
       config = action.config;
     }
 
-    if (action.type === "UI_COMMAND_EXEC" && matches(action.command)) {
+    if (action.type === "UI_COMMAND_EXEC" && isValid(action.command)) {
       const key = getKey(action.command);
 
       if (config.shells[key]) {
