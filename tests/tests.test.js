@@ -24,7 +24,7 @@ test("action type CONFIG_LOAD should not call dispatch", () => {
   expect(mockDispatch).not.toBeCalled();
 });
 
-test("action type CONFIG_LOAD should not call dispatch", () => {
+test("action type CONFIG_RELOAD should not call dispatch", () => {
   const mockDispatch = jest.fn();
   const testFn = middleware({ dispatch: mockDispatch })(() => {});
 
@@ -39,6 +39,32 @@ test("action type UI_COMMAND_EXEC should not call dispatch, if there is no comma
   const testFn = middleware({ dispatch: mockDispatch })(() => {});
 
   const mockAction = { type: "UI_COMMAND_EXEC" };
+
+  testFn(mockAction);
+
+  expect(mockDispatch).not.toBeCalled();
+});
+
+test("action type UI_COMMAND_EXEC should not call dispatch, if there is a command but no matching config", () => {
+  const mockDispatch = jest.fn();
+  const testFn = middleware({ dispatch: mockDispatch })(() => {});
+
+  // setup config
+  const mockConfigAction = {
+    type: "CONFIG_LOAD",
+    config: {
+      shells: {
+        default: {}
+      }
+    }
+  };
+
+  testFn(mockConfigAction);
+
+  const mockAction = {
+    type: "UI_COMMAND_EXEC",
+    command: "shell:load:powershell"
+  };
 
   testFn(mockAction);
 
