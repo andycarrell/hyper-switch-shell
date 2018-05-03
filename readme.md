@@ -35,7 +35,6 @@ Allows hyper users to define alternate shell configurations and switch based on 
 }
 ```
 * Add key mappings - these mappings will update the config
-    * Currently only powershell & a generic default are supported.
 ```js
 {
   keymaps: {
@@ -44,7 +43,8 @@ Allows hyper users to define alternate shell configurations and switch based on 
   }
 }
 ```
-* Each command simply reloads the config - open a new tab, or reload `hyper` to use the new shell.
+* Any given key is supported, provided the keymap `shell:load:{key}` matches the config key
+* Each command simply reloads the config - open a new tab to use the new shell.
 
 ## Tests
 `npm test` - runs a limited number of tests found in `test/`.
